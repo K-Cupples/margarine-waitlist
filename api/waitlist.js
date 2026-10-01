@@ -9,7 +9,7 @@
 //   CIO_SITE_ID        Customer.io -> Settings -> API Credentials -> Track API
 //   CIO_API_KEY        same page, the Track API key (not the App API key)
 
-const TRACK_API = "https://track.customer.io/v1/customers";
+const TRACK_API = "https://track.customer.io/api/v1/customers";
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
