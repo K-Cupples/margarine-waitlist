@@ -60,7 +60,12 @@ module.exports = async function handler(req, res) {
     if (!cio.ok) {
       const detail = await cio.text();
       console.error("Customer.io rejected the write:", cio.status, detail);
-      return res.status(502).json({ error: "Could not reach the mailing list." });
+      // Surface the upstream status so a failure is diagnosable from the
+      // browser. The status only, never the body: that can echo credentials.
+      return res.status(502).json({
+        error: "Could not reach the mailing list.",
+        customerio_status: cio.status
+      });
     }
 
     return res.status(200).json({ ok: true });
