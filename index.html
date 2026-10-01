@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Margarine — workshop sessions that feel intentional</title>
+<meta name="description" content="A workshop platform for facilitators who miss Butter. Pre-launch. Join the waitlist.">
+
+<style>
+  :root{
+    --ink:#1B1915;
+    --ink-2:#55504A;
+    --muted:#827B72;
+    --line:#E6E0D6;
+    --bg:#FDFBF6;
+    --card:#F6F2EA;
+    --accent:#D98C1F;
+    --accent-deep:#A85C12;
+    --accent-ink:#FFFFFF;
+    --butter-1:#FFD873;
+    --butter-2:#FFEFC2;
+    --berry:#8C3B6B;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    font-size:17px;
+  }
+  .wrap{width:100%;max-width:680px;margin:0 auto;padding:0 20px}
+  p,li{max-width:65ch;color:var(--ink-2)}
+  h1,h2,h3{line-height:1.15;letter-spacing:-0.02em;color:var(--ink)}
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  .eyebrow{
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:12px;
+  }
+
+  /* 01 HEADER */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:rgba(253,251,246,.92);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+  .logo{font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+  nav ul{display:flex;gap:18px;list-style:none}
+  nav a{font-size:14.5px;color:var(--ink-2);text-decoration:none}
+  nav a:hover{color:var(--ink)}
+  @media (max-width:640px){ nav{display:none} }
+
+  /* 02 HERO */
+  .hero{
+    position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    padding:56px 0 64px;
+    background:
+      radial-gradient(900px 420px at 12% -8%, rgba(255,216,115,.95), transparent 62%),
+      radial-gradient(760px 420px at 92% 6%, rgba(140,59,107,.16), transparent 60%),
+      linear-gradient(180deg,#FFF3D4 0%, #FFFAEE 58%, var(--bg) 100%);
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;
+    background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:7px 14px 7px 10px;border-radius:999px;
+    background:#fff;border:1px solid #F0DCA6;
+    font-size:13.5px;font-weight:600;color:var(--ink);
+    box-shadow:0 1px 2px rgba(80,55,10,.06);
+  }
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--berry);flex:none}
+  .hero h1{
+    margin-top:20px;font-size:42px;font-weight:800;letter-spacing:-.03em;max-width:15ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--accent-deep)}
+  .hero .sub{margin-top:18px;font-size:19.5px;color:var(--ink-2);max-width:48ch}
+  @media (min-width:700px){ .hero{padding:76px 0 80px} .hero h1{font-size:60px} }
+
+  .trustrow{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;
+  }
+  .trustrow span{
+    font-size:13.5px;font-weight:600;color:var(--ink);
+    background:rgba(255,255,255,.72);border:1px solid #F0DCA6;
+    padding:7px 13px;border-radius:999px;
+  }
+
+  /* framed screenshot */
+  .frame{
+    margin-top:34px;border-radius:14px;overflow:hidden;
+    border:1px solid #EBD9AE;background:#fff;
+    box-shadow:0 18px 44px -18px rgba(90,60,10,.38), 0 2px 6px rgba(90,60,10,.08);
+  }
+  .frame .chrome{
+    display:flex;align-items:center;gap:7px;
+    padding:10px 13px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#FFFDF8,#F7F1E4);
+  }
+  .frame .chrome i{width:10px;height:10px;border-radius:50%;background:#E3D9C6;display:block}
+  .frame .chrome i:nth-child(1){background:#E8927C}
+  .frame .chrome i:nth-child(2){background:#F0C465}
+  .frame .chrome i:nth-child(3){background:#9CC49A}
+  .frame .chrome .u{
+    margin-left:8px;font-size:12px;color:var(--muted);
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:3px 10px;
+  }
+
+  /* FORM */
+  .signup{margin-top:28px;max-width:520px}
+  .signup form{display:flex;gap:10px;flex-wrap:wrap}
+  .signup input[type=email]{
+    flex:1 1 240px;min-width:0;
+    font:inherit;font-size:16px;
+    padding:13px 15px;
+    border:1px solid var(--line);border-radius:10px;
+    background:#fff;color:var(--ink);
+  }
+  .signup input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+  .signup button{
+    font:inherit;font-weight:700;font-size:16px;
+    padding:13px 24px;border:0;border-radius:10px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-deep));
+    color:var(--accent-ink);cursor:pointer;flex:0 0 auto;
+    box-shadow:0 2px 0 rgba(120,70,10,.25), 0 8px 18px -8px rgba(160,95,20,.6);
+  }
+  .signup button:hover{filter:brightness(.94)}
+  .signup button[disabled]{opacity:.6;cursor:default}
+  .microcopy{margin-top:10px;font-size:14px;color:var(--muted)}
+  .confirm{
+    padding:16px 18px;border:1px solid var(--line);border-radius:10px;
+    background:var(--card);font-size:16px;color:var(--ink);
+  }
+  .confirm b{display:block;margin-bottom:4px}
+  .err{margin-top:10px;font-size:14px;color:#A8341F}
+
+  /* MEDIA PLACEHOLDERS */
+  figure{margin:26px 0 0}
+  .shot{
+    width:100%;aspect-ratio:16/10;
+    background:linear-gradient(135deg,#FFF6E0,#F3EADA);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:14px;text-align:center;padding:20px;
+  }
+  figcaption{margin-top:8px;font-size:13.5px;color:var(--muted)}
+  .founder{display:flex;gap:18px;align-items:flex-start;margin-top:4px}
+  .portrait{
+    flex:0 0 96px;width:96px;height:96px;border-radius:50%;
+    border:1px solid var(--line);background:var(--card);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:11px;text-align:center;padding:8px;
+  }
+  @media (max-width:520px){ .founder{flex-direction:column} }
+
+  /* LISTS */
+  ul.plain{list-style:none;margin-top:14px}
+  ul.plain li{padding:11px 0;border-bottom:1px dashed var(--line)}
+  ul.plain li:last-child{border-bottom:0}
+  ul.plain li b{color:var(--ink)}
+  .steps{counter-reset:s;list-style:none;margin-top:14px}
+  .steps li{position:relative;padding:11px 0 11px 38px}
+  .steps li::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:0;top:11px;
+    width:25px;height:25px;border-radius:50%;
+    background:var(--card);border:1px solid var(--line);
+    font-size:13px;font-weight:700;color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cols{display:grid;gap:22px;margin-top:16px}
+  @media (min-width:640px){ .cols{grid-template-columns:1fr 1fr} }
+  .col h3{font-size:16px;margin-bottom:6px}
+
+  /* 11 WAITLIST BLOCK */
+  .finalcta{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .finalcta h2{font-size:28px}
+
+  /* 12 FOOTER */
+  footer.site{padding:30px 0 50px}
+  footer.site p{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- 01 HEADER -->
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Margarine</a>
+    <nav>
+      <ul>
+        <li><a href="#problem">The problem</a></li>
+        <li><a href="#what">What it is</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 02 HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span> Butter shut down in February. Nothing replaced it.</div>
+
+      <h1>Workshop sessions that feel <em>intentional</em>.</h1>
+      <p class="sub">The agenda runs the room so you don&rsquo;t have to. Built for facilitators who lost Butter and refuse to go back to a video call and a phone timer.</p>
+
+      <div class="signup" id="signup-hero">
+        <form data-waitlist novalidate>
+          <label class="sr-only" for="email-hero" hidden>Email</label>
+          <input id="email-hero" type="email" name="email" placeholder="you@studio.com" required autocomplete="email">
+          <button type="submit">Join the waitlist</button>
+        </form>
+        <p class="microcopy">One email when it opens. Nothing else.</p>
+      </div>
+
+      <div class="trustrow">
+        <span>Agenda-first, not grid-first</span>
+        <span>Breakouts, polls, recording</span>
+        <span>AI recaps</span>
+        <span>Built by one person</span>
+      </div>
+
+      <figure>
+        <!-- SWAP: drop your screenshot at images/session.png and replace this div with:
+             <img src="images/session.png" alt="A Margarine session in progress" style="width:100%;border-radius:12px;border:1px solid var(--line)"> -->
+        <div class="frame">
+          <div class="chrome"><i></i><i></i><i></i><span class="u">margarine.app/session/kickoff</span></div>
+          <div class="shot">Product screenshot goes here<br>images/session.png</div>
+        </div>
+        <figcaption>A session in progress. Agenda on the left, people in the middle, timer always visible.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 THE PROBLEM -->
+  <section id="problem">
+    <div class="wrap">
+      <div class="eyebrow">The problem</div>
+      <h2>Your workshop tool went away, and the replacement is worse.</h2>
+      <p style="margin-top:14px">Butter shut down. The parts people actually used got folded into something bigger and more general, and the thing that made a session feel run rather than attended did not survive the move.</p>
+      <p style="margin-top:12px">So facilitators went back to a video call with a slide deck and a phone timer. It works. It just puts all the structure back in your head, where it was before, and everyone can tell.</p>
+    </div>
+  </section>
+
+  <!-- 04 WHAT IT IS -->
+  <section id="what">
+    <div class="wrap">
+      <div class="eyebrow">What it is</div>
+      <h2>A video platform built around the agenda, not the grid.</h2>
+      <p style="margin-top:14px">Margarine is a workshop tool for people who run sessions for a living. You build the agenda first and the session runs itself against it, so you spend the hour facilitating instead of stage managing.</p>
+      <ul class="plain">
+        <li><b>Agenda and timeboxing</b> — the plan is visible to everyone and the clock moves on its own.</li>
+        <li><b>Breakouts</b> — split the room and pull it back without losing anyone.</li>
+        <li><b>Polls, reactions, hand raise and a speaker queue</b> — the quiet half of the room gets a way in.</li>
+        <li><b>Recording and AI recaps</b> — the session writes up its own notes.</li>
+        <li><b>Templates</b> — start from a format that already works instead of a blank agenda.</li>
+        <li><b>Sounds and music</b> — the small things that made a session feel like a room.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps, same as the session you already run.</h2>
+      <ol class="steps">
+        <li><b>Build the agenda.</b> Blocks, timings, what happens in each one. Start from a template or your own.</li>
+        <li><b>Send one link.</b> People arrive in a waiting room that does not feel like a parking lot.</li>
+        <li><b>Run it.</b> The timer drives, breakouts open and close, and the recap lands when you finish.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 06 WHO IT IS FOR AND NOT FOR -->
+  <section id="who">
+    <div class="wrap">
+      <div class="eyebrow">Who it is for</div>
+      <h2>Worth being clear about this.</h2>
+      <div class="cols">
+        <div class="col">
+          <h3>For you if</h3>
+          <ul class="plain">
+            <li>You facilitate workshops, trainings or cohorts and the structure matters</li>
+            <li>You used Butter and have not found anything that fits since</li>
+            <li>You run the same formats repeatedly and want them saved</li>
+            <li>You are a team of one to ten, not a procurement committee</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>Not for you if</h3>
+          <ul class="plain">
+            <li>You need a general meeting tool for every call your company makes</li>
+            <li>You want webinars to a thousand people</li>
+            <li>You need SSO, SOC 2 and a security review before you can try something</li>
+            <li>Your sessions are unstructured and that is on purpose</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow">About</div>
+      <h2>Built by one person, on purpose.</h2>
+      <div class="founder">
+        <!-- SWAP: drop your photo at images/kyle.jpg and replace this div with:
+             <img class="portrait" src="images/kyle.jpg" alt="Kyle Cupples"> -->
+        <div class="portrait">Founder photo<br>images/kyle.jpg</div>
+        <div>
+          <p>I am Kyle. I spent years as an engineer at Amazon and now I build products with founders who are not technical, which means I sit in a lot of workshops and watch a lot of people fight their tools.</p>
+          <p style="margin-top:12px">Margarine is small by design. A beloved tool for a specific group of people does not need to raise money and chase a market it was never for. That is roughly what happened last time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 WHY YOU -->
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow">Why me</div>
+      <h2>I am not trying to build the next video company.</h2>
+      <p style="margin-top:14px">The tool you lost was bought and shut down because it had to grow faster than its audience did. I would rather run something sustainable for a few thousand facilitators than something venture sized for nobody in particular.</p>
+      <p style="margin-top:12px">Practically, that means you can reach me, the roadmap comes from what you ask for, and the thing does not get absorbed into a suite in two years.</p>
+    </div>
+  </section>
+
+  <!-- 09 PROOF -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow">Where it stands</div>
+      <h2>Honest status.</h2>
+      <ul class="plain">
+        <li><b>The product is built, not hypothetical.</b> Video, agenda, breakouts, recording, recaps, templates and polls all exist today.</li>
+        <li><b>It has not been run at scale yet.</b> That is exactly what this waitlist is for.</li>
+        <li><b>No testimonials, because there are no customers yet.</b> You would be early, and I would rather say that than invent a quote.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 WHAT HAPPENS WHEN YOU JOIN -->
+  <section id="next">
+    <div class="wrap">
+      <div class="eyebrow">What happens when you join</div>
+      <h2>No drip sequence.</h2>
+      <ol class="steps">
+        <li><b>One email now</b> confirming you are on the list.</li>
+        <li><b>One email when early access opens,</b> with a link that works.</li>
+        <li><b>That is it.</b> If you reply, it comes to me and I answer.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 11 WAITLIST BLOCK -->
+  <section class="finalcta" id="join">
+    <div class="wrap">
+      <h2>Join the waitlist.</h2>
+      <p style="margin-top:12px">Early access opens to this list first.</p>
+      <div class="signup" id="signup-foot">
+        <form data-waitlist novalidate>
+          <label for="email-foot" hidden>Email</label>
+          <input id="email-foot" type="email" name="email" placeholder="you@studio.com" required autocomplete="email">
+          <button type="submit">Join the waitlist</button>
+        </form>
+        <p class="microcopy">One email when it opens. Nothing else.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 12 FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <p><b>Margarine</b> — workshop sessions that feel intentional.</p>
+    <p style="margin-top:6px">&copy; 2026 Margarine. <a href="/privacy.html" style="color:var(--muted)">Privacy</a> &middot; <a href="/terms.html" style="color:var(--muted)">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+  // Both forms behave identically. On submit we POST the email to /api/waitlist,
+  // a serverless function that lives next to this file and talks to Customer.io
+  // server side. No keys here: this file ships to the browser.
+  document.querySelectorAll("form[data-waitlist]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var input = form.querySelector('input[name="email"]');
+      var button = form.querySelector("button");
+      var email = (input.value || "").trim();
+
+      if (!email || email.indexOf("@") === -1) {
+        input.focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Joining…";
+
+      fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email })
+      })
+        .then(function (res) {
+          if (!res.ok) { throw new Error("Request failed: " + res.status); }
+          return res;
+        })
+        .then(function () {
+          var done = document.createElement("div");
+          done.className = "confirm";
+          done.innerHTML = "<b>You are on the list.</b>Check your inbox for a confirmation. If it is not there in a minute, look in spam and mark it safe.";
+          form.replaceWith(done);
+        })
+        .catch(function () {
+          button.disabled = false;
+          button.textContent = "Join the waitlist";
+          var err = form.parentNode.querySelector(".err");
+          if (!err) {
+            err = document.createElement("p");
+            err.className = "err";
+            form.parentNode.appendChild(err);
+          }
+          err.textContent = "That did not go through. Try again, or email kyle@margarine.app and I will add you.";
+        });
+    });
+  });
+</script>
+
+</body>
+</html>
